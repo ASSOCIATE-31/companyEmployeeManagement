@@ -14,10 +14,6 @@ use App\Http\Controllers\Admin\Employee\EmployeeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/add/company', [CompanyController::class, 'create'])->name('add-company');
-Route::post('/insert/company', [CompanyController::class, 'store'])->name('company.store');
+
+
+
