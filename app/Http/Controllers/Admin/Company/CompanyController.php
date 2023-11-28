@@ -20,7 +20,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        dd('Company Controller');
+        return view('admin.pages.company.add-company');
     }
 
     /**
