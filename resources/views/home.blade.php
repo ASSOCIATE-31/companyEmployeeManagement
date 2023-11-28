@@ -4,7 +4,7 @@
     <h1>Dashboard</h1>
 @stop
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p>Welcome {{Auth::user()->name}}</p>
     <section class="content">
     <div class="container-fluid">
         <div class="row">
