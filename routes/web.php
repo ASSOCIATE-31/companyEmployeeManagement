@@ -19,7 +19,5 @@ Route::get('/', function () {
 });
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/add-company', [CompanyController::class, 'create'])->name('add-company');
-Route::get('/list-company', [CompanyController::class, 'create'])->name('list-company');
-Route::get('/add-employee', [CompanyController::class, 'create'])->name('add-employee');
-Route::get('/list-employee', [CompanyController::class, 'create'])->name('list-employee');
+Route::get('/add/company', [CompanyController::class, 'create'])->name('add-company');
+Route::post('/insert/company', [CompanyController::class, 'store'])->name('company.store');

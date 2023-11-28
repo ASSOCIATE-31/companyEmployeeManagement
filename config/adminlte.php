@@ -329,7 +329,7 @@ return [
                 ],
                 [
                     'text' => 'company add',
-                    'url'  => '/add-company',
+                    'url'  => '/add/company',
                     'icon' => 'fa fa-fw fa-circle',
                 ],
                 

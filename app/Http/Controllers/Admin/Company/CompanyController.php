@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Company;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\AddCompanyRequest;
 
 class CompanyController extends Controller
 {
@@ -22,11 +23,10 @@ class CompanyController extends Controller
     {
         return view('admin.pages.company.add-company');
     }
-
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AddCompanyRequest $request)
     {
         //
     }
