@@ -313,7 +313,7 @@ return [
         ],
         [
             'text'        => 'dashboard',
-            'url'         => 'admin/pages',
+            'url'         => 'home',
             'icon'        => 'nav-icon fas fa-tachometer-alt',
             'label'       => 4,
             'label_color' => 'success',
@@ -324,12 +324,12 @@ return [
             'submenu' => [
                 [
                     'text' => 'company list',
-                    'url'  => '#',
+                    'url'  => '/list-company',
                     'icon' => 'fa fa-fw fa-circle',
                 ],
                 [
                     'text' => 'company add',
-                    'url'  => '#',
+                    'url'  => '/add-company',
                     'icon' => 'fa fa-fw fa-circle',
                 ],
                 
@@ -341,12 +341,12 @@ return [
             'submenu' => [
                 [
                     'text' => 'employee list',
-                    'url'  => '#',
+                    'url'  => '/list-employee',
                     'icon' => 'fa fa-fw fa-circle',
                 ],
                 [
-                    'text' => 'employee add',
-                    'url'  => '#',
+                    'text' => 'employee add ',
+                    'url'  => '/add-employee',
                     'icon' => 'fa fa-fw fa-circle',
                 ],
                 
