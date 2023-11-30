@@ -32,7 +32,7 @@ class AddCompanyRequest extends FormRequest
     public function messages()
     {
         return [
-            'companyName.required'   => '* Company name required',
+            'companyName.required'   => '* Company name required Custom Request',
             'companyLogo.image'      => '* Not an image',    
             'companyLogo.dimensions' => '* Minimum width is 100*100 px ',
         ];
