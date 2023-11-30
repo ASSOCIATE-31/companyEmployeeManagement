@@ -30,7 +30,11 @@
                 <tr>
                     <td>{{$company->company_name}}</td>
                     <td>{{$company->email}}</td>
-                    <td><img src="{{storage_path('/app/public/admin/'.$company->logo)}}"></td>
+                    <td> 
+                        @if($company->logo) 
+                             <img src="{{ asset('/storage/app/public/admin/'.$company->logo) }}" style="height: 50px;width:100px;">
+                        @endif
+                    </td>
                 </tr>
                 @endforeach
             @endif    
