@@ -1,66 +1,53 @@
 @extends('adminlte::page')
 @section('title', 'Dashboard')
 @section('content_header')
-    <h1>Dashboard</h1>
 @stop
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
-    <section class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-3 col-6">
-                <div class="small-box bg-info">
-                   <div class="inner">
-                        <h3>150</h3>
-                        <p>New Orders</p>
-                   </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
+<div class="card card-outline card-success">
+    <div class="card-header">
+         <h3 class="card-title">List Company</h3>
+         <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-        <div class="col-lg-3 col-6">
-            <div class="small-box bg-success">
-                <div class="inner">
-                    <h3>53<sup style="font-size: 20px">%</sup></h3>
-                    <p>Bounce Rate</p>
-               </div>
-               <div class="icon">
-                   <i class="ion ion-stats-bars"></i>
-                </div>
-                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-6">
-            <div class="small-box bg-warning">
-               <div class="inner">
-                    <h3>44</h3>
-                    <p>User Registrations</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-6">
-            <div class="small-box bg-danger">
-                <div class="inner">
-                  <h3>65</h3>
-                 <p>Unique Visitors</p>
-                </div>
-                <div class="icon">
-                   <i class="ion ion-pie-graph"></i>
-                </div>
-                   <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-        </div>
+    </div>
+    <section class="content" style="margin-top:3rem; margin-left:2rem; margin-right:2rem;">
+        <table id="table_id" class="display">
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th>Company Email</th>
+                    <th>Company Logo</th>
+                </tr>
+            </thead>
+            <tbody>
+            @if(count($companyDetails)>0)
+                @foreach($companyDetails as $company)
+                <tr>
+                    <td>{{$company->company_name}}</td>
+                    <td>{{$company->email}}</td>
+                    <td><img src="{{storage_path('/app/public/admin/'.$company->logo)}}"></td>
+                </tr>
+                @endforeach
+            @endif    
+            </tbody>
+        </table>
+    </section>
+</div>
 @stop
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 @stop
 @section('js')
-    <script> console.log('Hi!'); </script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+</script>
 @stop
