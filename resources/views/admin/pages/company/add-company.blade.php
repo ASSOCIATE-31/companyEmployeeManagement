@@ -59,17 +59,16 @@
             </div>
         </form>
         <!-- Success Toast Msg -->
-        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="successToastMsg">
+        <div id="successToastMsg" class="toast bg-success fade show" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
-                <img src="..." class="rounded mr-2" alt="...">
-                <strong class="mr-auto">Bootstrap</strong>
-                <small class="text-muted">just now</small>
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                <strong class="mr-auto">Toast Title</strong>
+                <small>Subtitle</small>
+                <button data-dismiss="toast" type="button" class="ml-2 mb-1 close" aria-label="Close">
+                    <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="toast-body">
-                See? Just like this.
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
             </div>
         </div>
         <!--  End -->
