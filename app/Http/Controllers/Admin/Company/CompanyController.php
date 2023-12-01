@@ -100,9 +100,12 @@ class CompanyController extends Controller
      */
     public function edit(Request $request)
     {
+        return response()->json(['status' => 200, 'id'=>$request->id]);
         $slug                 = Str::slug($request->companyNameValue.Str::random(40), '-');
         if($request->hasFile('companyLogoValue'))
         {
+            // Unlink company logo
+         
             $file               = $request->file('companyLogoValue');
             $fileName           = time() . '.' . $file->getClientOriginalExtension();
             $destinationPath    = storage_path().'/app/public/admin' ;
