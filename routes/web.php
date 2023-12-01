@@ -38,4 +38,8 @@ Route::get('/destroy-company/{slug}', [CompanyController::class, 'destroy'])->na
 |  
 */
 Route::get('/add/employee', [EmployeeController::class, 'create'])->name('add-employee');
-
+Route::post('/store/employee', [EmployeeController::class, 'store'])->name('employee.store');
+Route::get('/list-employee', [EmployeeController::class, 'list'])->name('employee.list');
+Route::get('/update-employee/{slug}', [EmployeeController::class, 'update'])->name('employee.update');  
+Route::post('/update-employee', [EmployeeController::class, 'edit'])->name('employee.edit');  
+Route::get('/destroy-employee/{slug}', [EmployeeController::class, 'destroy'])->name('employee.destroy');  
