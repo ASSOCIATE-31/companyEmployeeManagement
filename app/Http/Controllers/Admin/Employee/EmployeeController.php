@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Employee;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Company;
 
 class EmployeeController extends Controller
 {
@@ -20,7 +21,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        $companyDetails = Company::all();
+        return view('admin.pages.employee.add-employee')->with('companyDetails',$companyDetails);
     }
 
     /**

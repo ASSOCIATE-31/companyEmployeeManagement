@@ -1,6 +1,17 @@
 @extends('adminlte::page')
 @section('title', 'Dashboard')
 @section('content_header')
+<!-- Bread crumb -->
+<ol class="breadcrumb float-sm-right">
+     <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+         <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">List Company</li>
+        </ol>
+    </nav>
+</ol>
+</br>
+<!--  end-->
 @stop
 @section('content')
 <div class="card card-outline card-success">
@@ -19,19 +30,50 @@
         <table id="table_id" class="display">
             <thead>
                 <tr>
+                    <th>Sl. no</th>
                     <th>Company Name</th>
                     <th>Company Email</th>
                     <th>Company Logo</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
+                @php $i=1; @endphp
             @if(count($companyDetails)>0)
                 @foreach($companyDetails as $company)
                 <tr>
-                    <td>{{$company->company_name}}</td>
-                    <td>{{$company->email}}</td>
-                    <td><img src="{{storage_path('/app/public/admin/'.$company->logo)}}"></td>
+                    <td>{{$i}}</td>
+                    <td>
+                        @if(!empty($company->company_name))
+                             {{$company->company_name}}
+                        @endif
+                    </td>
+                    <td>
+                        @if(!empty($company->email))
+                             {{$company->email}}
+                        @endif
+                    </td>
+                    <td> 
+                        @if($company->logo != "NULL") 
+                            <img src="{{storage_path('app/public/admin/'.$company->logo)}}">
+                        @else
+                            No Logo Present
+                        @endif 
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-success">Action</button>
+                            <button type="button" class="btn btn-success dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
+                               <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu" role="menu" style="">
+                                <a class="dropdown-item" href="{{route('company.update',['slug' => $company->slug])}}">Update</a>
+                                <a class="dropdown-item" href="{{route('company.destroy',['slug' => $company->slug])}}">Delete</a>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
+                @php $i++; @endphp
                 @endforeach
             @endif    
             </tbody>

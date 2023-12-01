@@ -13,6 +13,7 @@ class Company extends Model
         'company_name',
         'email',
         'logo',
-        'status'
+        'status',
+        'slug',
     ];
 }
