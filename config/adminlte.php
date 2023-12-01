@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Company Employee',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Company</b>Employee',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -346,7 +346,7 @@ return [
                 ],
                 [
                     'text' => 'employee add ',
-                    'url'  => '/add-employee',
+                    'url'  => '/add/employee',
                     'icon' => 'fa fa-fw fa-circle',
                 ],
                 
