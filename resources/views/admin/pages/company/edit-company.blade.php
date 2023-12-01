@@ -62,10 +62,9 @@
     <form method="post" action="{{route('company.edit')}}" enctype="multipart/form-data" id="updateCompanyForm">
         @csrf
          <div class="container" style="margin-top:3em;  min-height: 50vh;">
+
          <!-- Company Name -->
-            @if(!empty($companyDetails[0]->id)) 
-                <input class="form-control" type="hidden"  value="{{$companyDetails[0]->id}}"  id="id" name="id" >
-            @endif  
+            <!-- <input class="form-control" type="text"  value="{{$companyDetails[0]->id}}"  id="id" name="id" > -->
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-1">

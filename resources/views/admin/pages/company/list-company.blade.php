@@ -55,7 +55,7 @@
                     </td>
                     <td> 
                         @if($company->logo != "NULL") 
-                            <img src="{{storage_path('app/public/admin/'.$company->logo)}}">
+                            <img src= "{{storage_path('app/public/admin/'.$company->logo)}}">
                         @else
                             No Logo Present
                         @endif 
@@ -82,8 +82,7 @@
 </div>
 @stop
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 @stop
 @section('js')
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>

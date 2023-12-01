@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', ()=>{ 
-    let companyName          = document.getElementById('companyName');
+   let companyName          = document.getElementById('companyName');
     let companyEmail         = document.getElementById('companyEmail');
     let companyLogo          = document.getElementById('companyLogo'); 
     let updateCompanyForm    = document.getElementById('updateCompanyForm');
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         let companyLogoValue  = companyLogo.value.trim();
         formData.append('companyNameValue',companyNameValue);
         formData.append('companyEmailValue',companyEmailValue);
-        formData.append('companyLogoValue', document.querySelector('#companyLogo').files[0]);
+        formData.append('companyLogoValue', document.querySelector('#companyLogo').files[0]); console.log(formData.get('id'));
         let url =  updateCompanyForm.action ;
         let token = document.querySelector('meta[name="csrf-token"]').content; 
         fetch(url, {
