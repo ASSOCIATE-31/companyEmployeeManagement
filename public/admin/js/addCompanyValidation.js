@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }  
         else if ((companyEmailValue != "") && (emailPatternCheck == false)) 
         {
-            errorCompanyEmail.innerHTML = "* Please enter a valid email address";
+            errorCompanyEmail.innerHTML = "* Please put a valid email address";
             setTimeout(function(){
                 companyEmailValue.innerHTML="";
             },3000);
@@ -91,14 +91,24 @@ document.addEventListener('DOMContentLoaded', ()=>{
                         companyName.value = '';
                         companyEmail.value = '';
                         companyLogo.value = '';
+                        setTimeout(function(){
+                            successToastMsg.remove();
+                        },3000);
                         break;
                 case 500 :
                          errorToastMsg.style.display="block";
                          errorMsgDiv.innerHTML = "The e-mail address you specified is already in use.";
+                         setTimeout(function(){
+                            errorToastMsg.remove();
+                        },3000);
                        break;
                 case 402 :
                         errorToastMsg.style.display="block";
                         errorMsgDiv.innerHTML = " General failure.";
+                        errorMsgDiv.innerHTML = "The e-mail address you specified is already in use.";
+                         setTimeout(function(){
+                            errorToastMsg.remove();
+                        },3000);
                       break;
                 default:
                     break;    

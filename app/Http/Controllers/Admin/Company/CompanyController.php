@@ -149,7 +149,8 @@ class CompanyController extends Controller
      */
     public function destroy(string $slug)
     {
-
-        return response()->json(['status' => $slug]);
+        Company::where('slug',$slug)->delete();
+        $companyDetails = Company::all();
+        return view('admin.pages.company.list-company')->with('companyDetails',$companyDetails);
     }
 }

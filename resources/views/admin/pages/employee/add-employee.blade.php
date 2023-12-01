@@ -27,7 +27,7 @@
             </button>
         </div>
     <div class="toast-body"> 
-        Your company details have been saved.
+        Your employee details have been saved.
     </div>
     </div>
 </div>
@@ -59,7 +59,7 @@
             </button>
         </div>
     </div>
-    <form method="post" action="{{route('company.store')}}" enctype="multipart/form-data" id="addCompanyForm">
+    <form method="post" action="{{route('employee.store')}}" enctype="multipart/form-data" id="addEmployeeForm">
         @csrf
         <div class="container" style="margin-top:2.5em;  min-height: 50vh;">
          <!-- Employee First Name -->
@@ -77,13 +77,13 @@
                            </div>
                            <input class="form-control" type="text" id="firstName" name="firstName">
                         </div>
-                        <!-- <div class="error text-danger" id="errorFirstName" style="position:absolute;"> @if($errors->has('companyName')) {{$errors->first('companyName')}} @endif </div> -->
+                        <div class="error text-danger" id="errorFirstName" style="position:absolute;"> @if($errors->has('firstName')) {{$errors->first('firstName')}} @endif </div>
                     </div>
                 </div> 
             </div>
             <!-- End -->
              <!-- Employee Last Name -->
-             <div class="form-group">
+             <div class="form-group" style="margin-top:2em;">
                 <div class="row">
                     <div class="col-sm-1">
                     </div>
@@ -97,7 +97,7 @@
                            </div>
                            <input class="form-control" type="text" id="lastName" name="lastName">
                         </div>
-                        <!-- <div class="error text-danger" id="errorLastName" style="position:absolute;"> @if($errors->has('companyName')) {{$errors->first('companyName')}} @endif </div> -->
+                        <div class="error text-danger" id="errorLastName" style="position:absolute;"> @if($errors->has('lastName')) {{$errors->first('lastName')}} @endif </div>
                     </div>
                 </div> 
             </div>
@@ -117,7 +117,7 @@
                          </div>
                             <input class="form-control" type="text"  id="employeeEmail" name="employeeEmail">
                         </div>
-                        <!-- <div class="error text-danger" id="errorCompanyLogo">@if($errors->has('employeeEmail')) {{$errors->first('employeeEmail')}} @endif </div> -->
+                        <div class="error text-danger" style="position:absolute;"id="errorEmployeeEmail">@if($errors->has('employeeEmail')) {{$errors->first('employeeEmail')}} @endif </div>
                     </div>
                 </div> 
             </div>
@@ -137,7 +137,7 @@
                          </div>
                             <input class="form-control" type="text"  id="employeePhone" name="employeePhone">
                         </div>
-                        <!-- <div class="error text-danger" id="errorCompanyLogo">@if($errors->has('employeeEmail')) {{$errors->first('employeeEmail')}} @endif </div> -->
+                        <div class="error text-danger" style="position:absolute;" id="errorEmployeePhone">@if($errors->has('employeePhone')) {{$errors->first('employeePhone')}} @endif </div>
                     </div>
                 </div> 
             </div>
@@ -148,7 +148,7 @@
                     <div class="col-sm-1">
                     </div>
                     <div class="col-sm-3" style="text-align: right;">
-                         <label>Select Company:</label>
+                         <label>Select Company <span class="text-danger">*</span> :</label> 
                     </div>
                     <div class="col-sm-5">
                         <div class="input-group">
@@ -163,12 +163,11 @@
                                 @endif
                             </select>
                          </div>
-                            
-                        </div>
-                        <!-- <div class="error text-danger" id="errorCompanyLogo">@if($errors->has('employeeEmail')) {{$errors->first('employeeEmail')}} @endif </div> -->
                     </div>
-                </div> 
-            </div>
+                    <div class="error text-danger" style="position:absolute;" id="errorEmployeeWorkingCompanyName">@if($errors->has('employeeWorkingCompanyName')) {{$errors->first('employeeWorkingCompanyName')}} @endif </div>
+                </div>
+            </div> 
+        </div>
         <!-- End -->  
          <!-- Company Names -->
         <div class="form-group" style="margin-top:2em;">
@@ -198,7 +197,7 @@
 </div>
 @stop
 @section('css')
-   <script src="{{asset('admin/js/addEmployeeValidation.js')}}"></script>
+   <script src="{{asset('admin/employee/js/addEmployeeValidation.js')}}"></script>
  @stop
 @section('js')
 @stop
