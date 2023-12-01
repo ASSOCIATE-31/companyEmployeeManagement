@@ -1,28 +1,28 @@
-document.addEventListener('DOMContentLoaded', ()=>{
-    let companyName       = document.getElementById('companyName');
-    let companyEmail      = document.getElementById('companyEmail');
-    let companyLogo       = document.getElementById('companyLogo'); 
-    let addCompanyForm    = document.getElementById('addCompanyForm');
-    let errorCompanyName  = document.getElementById('errorCompanyName'); 
-    let errorCompanyEmail = document.getElementById('errorCompanyEmail'); 
-    let errorCompanyLogo  = document.getElementById('errorCompanyLogo');  
-    let successToastMsg   = document.getElementById('successToastMsg');   
-    let errorToastMsg     = document.getElementById('errorToastMsg'); 
-    let errorMsgDiv       = document.getElementById('errorMsgDiv'); 
-    addCompanyForm.addEventListener('submit', e => {
+document.addEventListener('DOMContentLoaded', ()=>{ 
+    let companyName          = document.getElementById('companyName');
+    let companyEmail         = document.getElementById('companyEmail');
+    let companyLogo          = document.getElementById('companyLogo'); 
+    let updateCompanyForm    = document.getElementById('updateCompanyForm');
+    let errorCompanyName     = document.getElementById('errorCompanyName'); 
+    let errorCompanyEmail    = document.getElementById('errorCompanyEmail'); 
+    let errorCompanyLogo     = document.getElementById('errorCompanyLogo');  
+    let successToastMsg      = document.getElementById('successToastMsg');   
+    let errorToastMsg        = document.getElementById('errorToastMsg'); 
+    let errorMsgDiv          = document.getElementById('errorMsgDiv'); 
+    updateCompanyForm.addEventListener('submit', e => {
         e.preventDefault();
         let res = isValid(); 
         (res == true) ? formSubmit()  : '' ;
     });
     function isValid()
-    {
+    {  
         let flag = true;
-        let companyNameValue  = companyName.value.trim();
+        let companyNameValue  = companyName.value.trim(); 
         let companyEmailValue = companyEmail.value.trim();
         let companyLogoValue  = companyLogo.value.trim();
         let matchFound = false;
         var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        let emailPatternCheck = regEmail.test(companyEmailValue);
+        let emailPatternCheck = regEmail.test(companyEmailValue);  
         if(companyLogoValue != "")
         {
             let filename            = companyLogo.files[0].name;
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         formData.append('companyNameValue',companyNameValue);
         formData.append('companyEmailValue',companyEmailValue);
         formData.append('companyLogoValue', document.querySelector('#companyLogo').files[0]);
-        let url =  addCompanyForm.action ;
+        let url =  updateCompanyForm.action ;
         let token = document.querySelector('meta[name="csrf-token"]').content; 
         fetch(url, {
             method: 'post',
@@ -88,14 +88,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
              {
                 case 200: 
                         successToastMsg.style.display = 'block'; 
-                        companyName.value = '';
-                        companyEmail.value = '';
-                        companyLogo.value = '';
+                        window.location.href="/list-company";
                         break;
-                case 500 :
-                         errorToastMsg.style.display="block";
-                         errorMsgDiv.innerHTML = "The e-mail address you specified is already in use.";
-                       break;
                 case 402 :
                         errorToastMsg.style.display="block";
                         errorMsgDiv.innerHTML = " General failure.";
