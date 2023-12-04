@@ -25,7 +25,7 @@
                 <i class="fas fa-times"></i>
             </button>
         </div>
-    </div>
+    </div> 
     <section class="content" style="margin-top:3rem; margin-left:2rem; margin-right:2rem;">
         <table id="table_id" class="display">
             <thead>
@@ -50,8 +50,8 @@
                         @endif
                     </td>
                     <td>
-                        @if(!empty(($employee->companies_id)))
-                             {{$employee->companies_id}}
+                        @if(!empty(($employee->company->company_name)))
+                             {{$employee->company->company_name}}
                         @endif
                     </td>
                     <td>

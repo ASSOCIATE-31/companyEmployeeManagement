@@ -92,14 +92,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
                         companyEmail.value = '';
                         companyLogo.value = '';
                         setTimeout(function(){
-                            successToastMsg.remove();
+                            successToastMsg.style.display="none";
+                        },4000);
+                        setTimeout(function(){
+                            window.location.href="/list-company";
                         },5000);
                         break;
                 case 500 :
                          errorToastMsg.style.display="block";
                          errorMsgDiv.innerHTML = "The e-mail address you specified is already in use.";
                          setTimeout(function(){
-                            errorToastMsg.remove();
+                            errorToastMsg.style.display="none";
                         },5000);
                        break;
                 case 402 :
@@ -107,7 +110,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                         errorMsgDiv.innerHTML = " General failure.";
                         errorMsgDiv.innerHTML = "The e-mail address you specified is already in use.";
                          setTimeout(function(){
-                            errorToastMsg.remove();
+                            errorToastMsg.style.display="none";
                         },5000);
                       break;
                 default:

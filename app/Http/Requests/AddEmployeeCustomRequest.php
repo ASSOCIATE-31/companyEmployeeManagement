@@ -22,28 +22,30 @@ class AddEmployeeCustomRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'firstName'                  => 'required',
-            'lastName'                   => 'required',
-            'employeeEmail'              => [
+            'firstNameValue'                  => 'required',
+            'lastNameValue'                   => 'required',
+            'employeeEmailValue'              => [
                                                 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
                                             ],
            
-            'employeePhone'              => [
+            'employeePhoneValue'              => [
+                                              'unique:employees,phone',
                                               'numeric',
                                               'digits_between:10,10',
                                             ],
-            'employeeWorkingCompanyName' => 'required',
+            'employeeWorkingCompanyID' => 'required',
         ];
     }
     public function messages()
     {
         return [
-            'firstName.required'                  => '* Please put your first name',
-            'lastName.required'                   => '* Please put your last name',
-            'employeeEmail.regex'                 => '* Please put valid email',
-            'employeePhone.numeric'               => '* Please put digits only',
-            'employeePhone.digits_between'        => '* Please put 10 digits only',
-            'employeeWorkingCompanyName.required' => '* Please select your organization'
+            'firstNameValue.required'                  => '* Please put your first name',
+            'lastNameValue.required'                   => '* Please put your last name',
+            'employeeEmailValue.regex'                 => '* Please put valid email',
+            'employeePhoneValue.unique'                => '* Phone number you have entered is already in use',
+            'employeePhoneValue.numeric'               => '* Please put digits only',
+            'employeePhoneValue.digits_between'        => '* Please put 10 digits only',
+            'employeeWorkingCompanyID.required'        => '* Please select your organization'
         ];
     }
 }

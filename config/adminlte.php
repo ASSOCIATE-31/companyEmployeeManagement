@@ -323,12 +323,12 @@ return [
             'icon'    => 'fa fa-fw fa-building', 
             'submenu' => [
                 [
-                    'text' => 'company list',
+                    'text' => 'listing company',
                     'url'  => '/list-company',
                     'icon' => 'fa fa-fw fa-circle',
                 ],
                 [
-                    'text' => 'company add',
+                    'text' => 'add company',
                     'url'  => '/add/company',
                     'icon' => 'fa fa-fw fa-circle',
                 ],
@@ -340,12 +340,12 @@ return [
             'icon'    => 'fas fa-user-tie',
             'submenu' => [
                 [
-                    'text' => 'employee list',
+                    'text' => 'listing employee',
                     'url'  => '/list-employee',
                     'icon' => 'fa fa-fw fa-circle',
                 ],
                 [
-                    'text' => 'employee add ',
+                    'text' => 'add employee ',
                     'url'  => '/add/employee',
                     'icon' => 'fa fa-fw fa-circle',
                 ],
