@@ -92,11 +92,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
              {
                 case 200: 
                         successToastMsg.style.display = 'block'; 
-                        window.location.href="/list-company";
+                        setTimeout(function(){
+                            successToastMsg.style.display="none";
+                        },4000);
+                        setTimeout(function(){
+                            window.location.href="/list-company";
+                        },5000);
                         break;
                 case 402 :
                         errorToastMsg.style.display="block";
                         errorMsgDiv.innerHTML = " General failure.";
+                        setTimeout(function(){
+                            errorToastMsg.style.display="none";
+                        },4000);
                       break;
                 default:
                     break;    

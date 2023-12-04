@@ -2,6 +2,24 @@
 @section('title', 'Dashboard')
 @section('content_header')
 <!-- Bread crumb -->
+<!-- Error Toast Msg -->
+@if(!empty($employeeCount)) 
+<div id="errorToastMsg" class="toasts-top-right absolute" style="width:22rem; display:block;">
+    <div class="toast bg-danger fade show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="mr-auto">Employee works!</strong><small></small>
+            <button data-dismiss="toast" type="button" class="ml-2 mb-1 close" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+    <div class="toast-body" id="errorMsgDiv"> 
+         {{$employeeCount}}, employee works under this company
+    </div>
+    </div>
+</div>
+@endif
+
+<!--  End -->
 <ol class="breadcrumb float-sm-right">
      <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
          <ol class="breadcrumb">
@@ -16,7 +34,7 @@
 @section('content')
 <div class="card card-outline card-success">
     <div class="card-header">
-         <h3 class="card-title">List Company</h3>
+         <h3 class="card-title">List Company</h3>  
          <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                 <i class="fas fa-minus"></i>
@@ -90,5 +108,8 @@
     $(document).ready( function () {
     $('#table_id').DataTable();
 } );
+    setTimeout(function(){
+        errorToastMsg.style.display="none";
+    },4000);
 </script>
 @stop

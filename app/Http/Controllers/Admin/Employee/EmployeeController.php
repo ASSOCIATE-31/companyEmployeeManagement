@@ -32,7 +32,7 @@ class EmployeeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AddEmployeeCustomRequest $request)
     {
         $slug                 = Str::slug($request->firstNameValue.$request->lastNameValue.Str::random(40), '-');
         $addEmployee = Employee::create([
@@ -58,8 +58,8 @@ class EmployeeController extends Controller
      */
     public function list()
     {
-        $employeeDetails = Employee::orderBy('id','DESC')->get();
-        return view('admin.pages.employee.list-employee')->with('employeeDetails',$employeeDetails);
+         $employeeDetails = Employee::with('company')->orderBy('id','DESC')->get();
+         return view('admin.pages.employee.list-employee')->with('employeeDetails',$employeeDetails);
     }
 
     /**

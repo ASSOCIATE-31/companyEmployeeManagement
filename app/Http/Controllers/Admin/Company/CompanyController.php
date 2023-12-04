@@ -148,7 +148,25 @@ class CompanyController extends Controller
      */
     public function destroy(string $slug)
     {
-        Company::where('slug',$slug)->delete();
+        $companyID          =  Company::where('slug',$slug)->pluck('id');
+        $id                 = $companyID[0];
+        /* -------------------------------------------------------------------------
+        | Checks whether company exists in employee table or not. If not delete.
+        |---------------------------------------------------------------------------
+        */
+        $employeeCount = Company::find($id)->employee->count();
+        switch($employeeCount)
+        {
+            case 0 :
+                Company::where('id',$id)->delete();
+                break;
+            case ($employeeCount > 0) :
+                $companyDetails = Company::all();
+                return view('admin.pages.company.list-company',['employeeCount' => $employeeCount])->with('companyDetails',$companyDetails);
+                break;
+            default:
+                break;
+        }
         $companyDetails = Company::all();
         return view('admin.pages.company.list-company')->with('companyDetails',$companyDetails);
     }

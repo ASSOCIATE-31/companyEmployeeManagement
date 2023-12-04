@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             },
           }).then(function (response) {
              let result = response.status;
-             console.log(result);
+             console.log(response);
              switch(result)
              {
                 case 200: 
@@ -130,19 +130,29 @@ document.addEventListener('DOMContentLoaded', ()=>{
                         lastName.value = '';
                         employeeEmail.value = '';
                         employeePhone.value = '';
-                        employeeWorkingCompanyName.value = '';
+                        employeeWorkingCompanyName.value = ''; 
                         successToastMsg.style.display = 'block'; 
                         setTimeout(function(){
-                            successToastMsg.remove();
-                        },3000);
+                            successToastMsg.style.display="none";
+                        },4000);
+                        setTimeout(function(){
+                            window.location.href="/list-employee";
+                        },4000);
                         break;
                 case 500 :
                          errorToastMsg.style.display="block";
                          errorMsgDiv.innerHTML = "The e-mail address you specified is already in use.";
                          setTimeout(function(){
-                            errorToastMsg.remove();
+                            errorToastMsg.style.display="none";
                         },3000);
                        break;
+                case 422 :
+                        errorToastMsg.style.display="block";
+                        errorMsgDiv.innerHTML = "The e-mail address or phone number you specified is already in use or select company.";
+                        setTimeout(function(){
+                            errorToastMsg.style.display="none";
+                        },3000);
+                      break;
                 default:
                     break;    
              }

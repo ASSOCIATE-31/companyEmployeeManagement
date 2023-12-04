@@ -124,21 +124,20 @@ document.addEventListener('DOMContentLoaded', ()=>{
             },
           }).then(function (response) {
              let result = response.status;
-             console.log(result);
-             switch(result)
+            switch(result)
              {
                 case 200: 
-                        window.location.href="/list-employee";    
                         successToastMsg.style.display = 'block'; 
                         setTimeout(function(){
-                            successToastMsg.remove();
+                            successToastMsg.style.display="none";
                         },3000);
+                        window.location.href="/list-employee";    
                         break;
                 case 500 :
                          errorToastMsg.style.display="block";
                          errorMsgDiv.innerHTML = "The e-mail address you specified is already in use.";
                          setTimeout(function(){
-                            errorToastMsg.remove();
+                            errorToastMsg.style.display="none";
                         },3000);
                        break;
                 default:
