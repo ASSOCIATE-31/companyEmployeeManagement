@@ -93,14 +93,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
                         companyLogo.value = '';
                         setTimeout(function(){
                             successToastMsg.remove();
-                        },3000);
+                        },5000);
                         break;
                 case 500 :
                          errorToastMsg.style.display="block";
                          errorMsgDiv.innerHTML = "The e-mail address you specified is already in use.";
                          setTimeout(function(){
                             errorToastMsg.remove();
-                        },3000);
+                        },5000);
                        break;
                 case 402 :
                         errorToastMsg.style.display="block";
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                         errorMsgDiv.innerHTML = "The e-mail address you specified is already in use.";
                          setTimeout(function(){
                             errorToastMsg.remove();
-                        },3000);
+                        },5000);
                       break;
                 default:
                     break;    

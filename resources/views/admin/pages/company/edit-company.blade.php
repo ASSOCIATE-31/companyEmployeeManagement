@@ -64,7 +64,7 @@
          <div class="container" style="margin-top:3em;  min-height: 50vh;">
 
          <!-- Company Name -->
-            <!-- <input class="form-control" type="text"  value="{{$companyDetails[0]->id}}"  id="id" name="id" > -->
+            <input class="form-control" type="text"  value="{{$companyDetails[0]->id}}"  id="id" name="id" >
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-1">

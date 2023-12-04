@@ -77,7 +77,7 @@ class CompanyController extends Controller
      */
     public function list()
     {
-        $companyDetails = Company::all();
+        $companyDetails = Company::orderBy('id','DESC')->get();
         return view('admin.pages.company.list-company')->with('companyDetails',$companyDetails);
     }
      /**
@@ -100,16 +100,13 @@ class CompanyController extends Controller
      */
     public function edit(Request $request)
     {
-        return response()->json(['status' => 200, 'id'=>$request->id]);
         $slug                 = Str::slug($request->companyNameValue.Str::random(40), '-');
         if($request->hasFile('companyLogoValue'))
-        {
-            // Unlink company logo
-         
+        {           
             $file               = $request->file('companyLogoValue');
             $fileName           = time() . '.' . $file->getClientOriginalExtension();
             $destinationPath    = storage_path().'/app/public/admin' ;
-            $store              = Company::where('email',$request->companyEmailValue)
+            $store              = Company::where('id',$request->companyID)
                                     ->update([
                                      'company_name' => $request->companyNameValue,
                                      'email'        => $request->companyEmailValue,
@@ -129,11 +126,10 @@ class CompanyController extends Controller
         }
         else
         {   
-            $store             = Company::where('email',$request->companyEmailValue)
+            $store             = Company::where('id',$request->companyID)
                                 ->update([
                                 'company_name' => $request->companyNameValue,
                                 'email'        => $request->companyEmailValue,
-                                'logo'         => 'NULL',
                                 'status'       => 0,
                                 'slug'         => $slug,
                             ]);

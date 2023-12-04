@@ -58,7 +58,7 @@ class EmployeeController extends Controller
      */
     public function list()
     {
-        $employeeDetails = Employee::all();
+        $employeeDetails = Employee::orderBy('id','DESC')->get();
         return view('admin.pages.employee.list-employee')->with('employeeDetails',$employeeDetails);
     }
 
