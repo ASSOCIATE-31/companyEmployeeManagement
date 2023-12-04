@@ -1,5 +1,6 @@
-document.addEventListener('DOMContentLoaded', ()=>{ 
-   let companyName          = document.getElementById('companyName');
+document.addEventListener('DOMContentLoaded', ()=>{   
+    let id                   = document.getElementById('id'); 
+    let companyName          = document.getElementById('companyName');
     let companyEmail         = document.getElementById('companyEmail');
     let companyLogo          = document.getElementById('companyLogo'); 
     let updateCompanyForm    = document.getElementById('updateCompanyForm');
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let errorToastMsg        = document.getElementById('errorToastMsg'); 
     let errorMsgDiv          = document.getElementById('errorMsgDiv'); 
     updateCompanyForm.addEventListener('submit', e => {
+        formSubmit();
         e.preventDefault();
         let res = isValid(); 
         (res == true) ? formSubmit()  : '' ;
@@ -67,9 +69,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     function formSubmit()
     {
         let formData = new FormData();
+        let companyID  = id.value;
         let companyNameValue  = companyName.value.trim();
         let companyEmailValue = companyEmail.value.trim();
         let companyLogoValue  = companyLogo.value.trim();
+        formData.append('companyID',companyID);
         formData.append('companyNameValue',companyNameValue);
         formData.append('companyEmailValue',companyEmailValue);
         formData.append('companyLogoValue', document.querySelector('#companyLogo').files[0]); console.log(formData.get('id'));
@@ -99,7 +103,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
              }
             return response.json();
             }).then(function (json) {  
-          })
+            })
             .catch(function (error) {
         });
    }

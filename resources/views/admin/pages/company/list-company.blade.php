@@ -55,7 +55,7 @@
                     </td>
                     <td> 
                         @if($company->logo != "NULL") 
-                            <img src= "{{storage_path('app/public/admin/'.$company->logo)}}">
+                            <img src= "{{asset('storage/admin/'.$company->logo)}}" height="50px" width="75px">
                         @else
                             No Logo Present
                         @endif 

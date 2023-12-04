@@ -32,6 +32,7 @@
                 <tr>
                     <th>Sl. no</th>
                     <th>Employee Name</th>
+                    <th>Company Name</th>
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Action</th>
@@ -46,6 +47,11 @@
                     <td>
                         @if(!empty(($employee->first_name) && ($employee->last_name)))
                              {{$employee->first_name." ".$employee->last_name}}
+                        @endif
+                    </td>
+                    <td>
+                        @if(!empty(($employee->companies_id)))
+                             {{$employee->companies_id}}
                         @endif
                     </td>
                     <td>
